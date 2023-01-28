@@ -34,7 +34,6 @@ sudo apt install -y containerd.io
 sudo /bin/sh -c 'mkdir -p /etc/containerd && containerd config default>/etc/containerd/config.toml'
 sudo systemctl restart containerd
 sudo systemctl enable containerd
-sudo systemctl status  containerd
 
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 
