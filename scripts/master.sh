@@ -4,7 +4,7 @@
 
 sudo apt-get install curl
 
-$IP = $(curl ifconfig.me)
+IP=$(curl ifconfig.me)
 
 echo " ______________________________________________________"
 echo "|                                                      |"
