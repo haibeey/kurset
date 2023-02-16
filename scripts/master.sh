@@ -25,6 +25,6 @@ sudo ufw allow 2379 && sudo ufw allow 2380 && sudo ufw allow 6443 && sudo ufw al
 # using calico at our networking system
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico-typha.yaml
+# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico-typha.yaml
 
 
