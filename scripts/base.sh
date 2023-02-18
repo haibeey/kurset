@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-$DOCKER_REPO = "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+$DOCKER_REPO="deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 if ! grep -q "$DOCKER_REPO" /etc/apt/sources.list; then
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository $REPO
@@ -37,7 +37,7 @@ sudo systemctl enable containerd
 
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 
-$GOOGLE_REPO = "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+$GOOGLE_REPO="deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 if ! grep -q "$GOOGLE_REPO" /etc/apt/sources.list.d/kubernetes.list; then
     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
