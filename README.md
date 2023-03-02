@@ -10,7 +10,7 @@ On your k8s control panel  server run
 
 `./kurset`
 
-It output a series of commands to  show below . Run those. 
+It output a series of commands shown below . Run those. 
 
   `mkdir -p $HOME/.kube.` 
   
