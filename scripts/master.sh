@@ -1,5 +1,11 @@
 #!/bin/bash
 
+export pnc="192.168.0.0/16"
+if [[ $network = "flannel" ]];
+then
+    export pnc="10.244.0.0/16"
+fi
+
 ./scripts/base.sh
 
 sudo apt-get install curl
@@ -12,7 +18,7 @@ echo "|   TAKE THE BELOW COMMAND AND RUN ON WORKER NODES     |"
 echo "|   AFTER INITIALIZING THE WORKER  NODE                |"
 echo " _______________________________________________________"
 
-sudo kubeadm init --apiserver-advertise-address=$IP --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init --apiserver-advertise-address=$IP --pod-network-cidr=$pnc
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
