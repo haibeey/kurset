@@ -14,3 +14,7 @@ sudo kubeadm reset
 sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*    || true
 sudo apt-get autoremove   || true
 sudo rm -rf ~/.kube || true
+sudo ip route flush proto bird || true
+sudo ip link list | grep cali | awk '{print $2}' | cut -c 1-15 | xargs -I {} sudo ip link delete {} || true
+sudo modprobe -r ipip
+sudo rm /etc/cni/net.d/10-calico.conflist || sudo rm /etc/cni/net.d/calico-kubeconfig || true
