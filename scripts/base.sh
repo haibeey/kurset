@@ -5,7 +5,7 @@ sudo apt-get update
 $DOCKER_REPO="deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 if ! grep -q "$DOCKER_REPO" /etc/apt/sources.list; then
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo add-apt-repository $DOCKER_REPO
+    sudo add-apt-repository "$DOCKER_REPO"
 fi
 
 sudo apt-get install docker.io
