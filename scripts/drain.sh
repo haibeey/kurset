@@ -11,3 +11,6 @@ delete_nodes () {
 
 delete_nodes || true
 sudo kubeadm reset 
+sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*    || true
+sudo apt-get autoremove   || true
+sudo rm -rf ~/.kube || true
