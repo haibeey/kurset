@@ -10,4 +10,4 @@ delete_nodes () {
 }
 
 delete_nodes || true
-kubeadm reset 
+sudo kubeadm reset 
