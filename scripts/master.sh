@@ -22,9 +22,18 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sudo ufw allow 2379 && sudo ufw allow 2380 && sudo ufw allow 6443 && sudo ufw allow 8090 && sudo ufw allow  8091 && sudo ufw allow 8472 && sudo ufw allow 10250 && sudo ufw allow 10251 && sudo ufw allow  10252 && sudo ufw allow  10255 && sudo ufw allow 179 && sudo ufw allow 4789 && sudo ufw allow 4 && sudo ufw allow  5473 && sudo ufw allow  51820 && sudo ufw allow  51821 && sudo ufw allow 4789
 
 
-# using calico at our networking system
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
-# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico-typha.yaml
+network = $network
+
+if [[ $network = "flannel" ]];
+then
+    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+else
+    # using calico at our networking system
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
+fi
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/cloud/deploy.yaml
+
 
 
