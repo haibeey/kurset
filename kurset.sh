@@ -33,6 +33,11 @@ else
             export network=flannel
             ./scripts/master.sh
             ;;
+            
+           calico)
+            export network=calico
+            ./scripts/master.sh
+            ;;
         
         *)
         kurser_help
